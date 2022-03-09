@@ -1,30 +1,40 @@
 @layout('layouts/app')
 @section('content')
-	<section class="px-32 bg-gray-100  pt-10 flex flex-col items-center justify-center w-screen" >
-		<form class="border-2 pt-5 px-10 pb-5" action="/contact" method="post">
-			<fieldset>
-				<legend class="text-4xl mb-4" >Pour nous contactez</legend>
+<section class="px-32 bg-gray-100  pt-10 flex flex-col items-center justify-center w-screen" >
+	<form class="border-2 pt-5 px-10 pb-5" action="/contact" method="post">
+		<fieldset>
+			<legend class="text-4xl mb-4" >Pour nous contactez</legend>
 			
-			<div class="w-full mb-2 flex flex-col items-start" >
-				<label for="username">Nom utilisateur *</label>
-				<input type="text" name="username" id="username" class="w-full h-10">
-			</div>
-			<div class="w-full mb-2 flex flex-col items-start" >
-				<label for="email">Email *</label>
-				<input type="email" name="email" id="email"  class="w-full h-10"/>
-			</div>
-			<div class="w-full mb-2 flex flex-col items-start" >
-				<label for="website">Site web </label>
-				<input name="website" id="website"  class="w-full h-10" />
-			</div>
-			<div class="mb-2 flex flex-col items-start" >
-				<label for="content">Message *</label>
-				<textarea name="content" id="content" cols="30" rows="10"  class="w-full h-32"></textarea>
-			</div>
-			<div>
-				<input type="submit" value="Envoyez le message"  class="w-full h-10  bg-blue-700" />
-			</div>
-			</fieldset>
-		</form>
-	</section>
+			@!component('components/input',{
+					text: 'Nom utilisateur *',
+					name: 'username',
+					type: 'text'
+			})
+
+			@!component('components/input',{
+					text: 'Email *',
+					name: 'email',
+					type: 'email'
+			})
+
+			@!component('components/input',{
+					text: 'Site web',
+					name: 'website',
+					type: 'text'
+			})
+
+			@!component('components/input',{
+					text: 'Message',
+					name: 'content',
+					type: 'textarea'
+			})
+
+			@!component('components/input',{
+					name: 'Envoyer le message',
+					type: 'submit'
+			})
+
+		</fieldset>
+	</form>
+</section>
 @end

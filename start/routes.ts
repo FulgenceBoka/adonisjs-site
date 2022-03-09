@@ -23,3 +23,9 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', 'PagesController.index').as('index')
 Route.get('/about', 'PagesController.about').as('about')
 Route.get('/contact', 'PagesController.contact').as('contact')
+
+Route.get('/signup', 'SignupController.index').as('signup')
+Route.post('/signup', 'SignupController.store')
+
+Route.get('/signin', 'SigninController.index').as('signin')
+Route.post('/signin', 'SigninController.store')
