@@ -1,0 +1,41 @@
+@layout('layouts/app')
+@set('title', 'Inscription')
+@section('content')
+	<section>
+		<form action="/signup" method="post">
+
+			<fieldset>
+				<legend class="py-4 text-2xl" >Inscription</legend>
+				
+				@!component('components/input',{
+					text: 'Nom utilisateur *',
+					name: 'username',
+					type: 'text'
+				})
+
+				@!component('components/input',{
+					text: 'Email *',
+					name: 'email',
+					type: 'email'
+				})
+
+				@!component('components/input',{
+					text: 'Mot de passe *',
+					name: 'password',
+					type: 'password'
+				})			
+
+				@!component('components/input',{
+					text: 'Confirmation mot de passe *',
+					name: 'confirmed_password',
+					type: 'password'
+				})				
+
+				@!component('components/input',{
+					name:'S\'inscrire',
+					type: 'submit'
+				})
+			</fieldset>
+		</form>
+	</section>
+@end

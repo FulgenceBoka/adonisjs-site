@@ -1,0 +1,41 @@
+@layout('layouts/app')
+@set('title', 'connexion')
+@section('content')
+	<section>
+		<form action="/signin" method="POST">
+			<fieldset>
+				<legend class="py-4 text-2xl" >Connexion</legend>
+				@!component('components/input',{
+					text: 'Email',
+					name: 'email',
+					type: 'email'
+				})
+
+				@if(flashMessages.has('errors.email'))
+				  <p  class="text-red-600">
+				   	{{flashMessages.get('errors.email') }}
+				  </p>
+				@endif
+
+				@!component('components/input',{
+					text: 'Mot de passe',
+					name: 'password',
+					type: 'password'
+					})
+
+					
+			  @if(flashMessages.has('errors.password'))
+				  <p  class="text-red-600">
+				   	{{flashMessages.get('errors.password') }}
+				  </p>
+				@endif
+
+				@!component('components/input',{
+					name:'Se connecter',
+					type: 'submit'
+				})
+			</fieldset>
+		</form>
+		{{ inspect(flashMessages) }}
+	</section>
+@end

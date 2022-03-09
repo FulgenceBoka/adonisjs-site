@@ -1,0 +1,12 @@
+<div class="w-full my-2 flex flex-col items-center" >
+	@if(type==='submit')
+		<button type="{{type}}" class="w-full flex-1" >{{name}}</button>
+	@else
+		<label for="{{name}}">{{text}}</label>
+		@if(type==='textarea')
+			<textarea name="{{name}}" id="{{name}}" cols="30" rows="10"  class="w-full h-32"></textarea>
+		@else
+			<input type="{{type}}" name="{{name}}"  id="{{name}}" >
+		@endif
+	@endif
+</div>
