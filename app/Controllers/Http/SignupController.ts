@@ -1,5 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-// import SignupValidator from 'App/Validators/SignupValidator'
+import SignupValidator from 'App/Validators/SignupValidator'
 
 export default class SignupController {
 	public async index({ view }: HttpContextContract) {
@@ -7,6 +7,7 @@ export default class SignupController {
 	}
 
 	public async store({ request }: HttpContextContract) {
-		return request
+		const { username, email, password } = await request.validate(SignupValidator)
+		return { username, email, password }
 	}
 }

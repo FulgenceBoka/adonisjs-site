@@ -1,4 +1,4 @@
-import { schema } from '@ioc:Adonis/Core/Validator'
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class SignupValidator {
@@ -23,7 +23,11 @@ export default class SignupValidator {
    *     ])
    *    ```
    */
-  public schema = schema.create({})
+  public schema = schema.create({
+    username: schema.string({ trim: true }, [rules.minLength(4)]),
+    email: schema.string({ trim: true }, [rules.email()]),
+    password: schema.string({ trim: true }, [rules.minLength(3), rules.confirmed()]),
+  })
 
   /**
    * Custom messages for validation failures. You can make use of dot notation `(.)`

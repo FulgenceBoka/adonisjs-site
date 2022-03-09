@@ -12,24 +12,42 @@
 					name: 'username',
 					type: 'text'
 				})
+				@if(flashMessages.has('errors.username'))
+					<p  class="text-red-600">
+				   	{{ flashMessages.get('errors.username') }}</p>
+				@endif
+
 
 				@!component('components/input',{
 					text: 'Email *',
 					name: 'email',
 					type: 'email'
 				})
+				@if(flashMessages.has('errors.email'))
+					<p  class="text-red-600">
+				   	{{ flashMessages.get('errors.email') }}</p>
+				@endif
+
 
 				@!component('components/input',{
 					text: 'Mot de passe *',
 					name: 'password',
 					type: 'password'
-				})			
+				})
+				@if(flashMessages.has('errors.password'))
+					<p  class="text-red-600">
+				   	{{ flashMessages.get('errors.password') }}</p>
+				@endif			
 
 				@!component('components/input',{
 					text: 'Confirmation mot de passe *',
-					name: 'confirmed_password',
+					name: 'password_confirmation',
 					type: 'password'
-				})				
+				})
+				@if(flashMessages.has('errors.password_confirmation'))
+					<p  class="text-red-600">
+				   	{{ flashMessages.get('errors.password_confirmation') }}</p>
+				@endif				
 
 				@!component('components/input',{
 					name:'S\'inscrire',
