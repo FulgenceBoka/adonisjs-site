@@ -1,12 +1,21 @@
-<div class="w-full my-2 flex flex-col items-center" >
+<div class="w-full my-2 flex flex-col items-start justify-start" >
 	@if(type==='submit')
-		<button type="{{type}}" class="w-full flex-1" >{{name}}</button>
+		<button type="{{type}}" class="w-full bg-blue-400 text-white font-bold h-10 rounded" >{{name}}</button>
 	@else
-		<label for="{{name}}">{{text}}</label>
+		<label for="{{name}}">{{label}}</label>
 		@if(type==='textarea')
-			<textarea name="{{name}}" id="{{name}}" cols="30" rows="10"  class="w-full h-32"></textarea>
+			<textarea name="{{name}}"  cols="30" rows="10"  class="w-full h-32 rounded"></textarea>
 		@else
-			<input type="{{type}}" name="{{name}}"  id="{{name}}" >
+			<input type="{{type}}" name="{{name}}" class="h-10 border border-gray-400 pl-6 text-lg font-bold rounded "  value="{{ flashMessages.get(name) || '' }}">
 		@endif
 	@endif
+
+
+
+	@if(flashMessages.has(`errors.${name}`))
+		 <p  class="mt-2  text-pink-600 text-sm ">
+		   	{{flashMessages.get(`errors.${name}`) }}
+		</p>
+	@endif
+
 </div>

@@ -36,6 +36,7 @@ main ul {
 }
 
 input,
-label {
+button,
+textarea label {
   width: 100%;
 }

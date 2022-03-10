@@ -5,9 +5,16 @@ export default class SigninController {
 		return view.render('users/signin')
 	}
 
-	public async store({ request }: HttpContextContract) {
+	public async store({ auth, request, response, session }: HttpContextContract) {
 		const { email, password } = await request.validate(SigninValidator)
 
-		return { email: email, password: password }
+		try {
+			await auth.use('web').attempt(email, password)
+		} catch (errors) {
+			session.flash('error', 'Email ou mot de passe invalide')
+			response.redirect().back()
+		}
+
+		return response.redirect().toRoute('index')
 	}
 }

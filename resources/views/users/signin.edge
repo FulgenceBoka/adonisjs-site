@@ -1,41 +1,29 @@
 @layout('layouts/app')
 @set('title', 'connexion')
 @section('content')
-	<section>
-		<form action="/signin" method="POST">
+	<section class="flex justify-center items-center">
+		<form action="/signin" method="post" class="bg-white border border-gray-400 px-8 py-6 my-8">
 			<fieldset>
 				<legend class="py-4 text-2xl" >Connexion</legend>
+				{{ csrfField() }}
 				@!component('components/input',{
-					text: 'Email',
+					label: 'Email',
 					name: 'email',
 					type: 'email'
 				})
 
-				@if(flashMessages.has('errors.email'))
-				  <p  class="text-red-600">
-				   	{{flashMessages.get('errors.email') }}
-				  </p>
-				@endif
-
 				@!component('components/input',{
-					text: 'Mot de passe',
+					label: 'Mot de passe',
 					name: 'password',
 					type: 'password'
 					})
 
 					
-			  @if(flashMessages.has('errors.password'))
-				  <p  class="text-red-600">
-				   	{{flashMessages.get('errors.password') }}
-				  </p>
-				@endif
-
 				@!component('components/input',{
 					name:'Se connecter',
 					type: 'submit'
 				})
 			</fieldset>
 		</form>
-		{{ inspect(flashMessages) }}
 	</section>
 @end
