@@ -3,7 +3,7 @@ import User from 'App/Models/User'
 import SigninValidator from 'App/Validators/SigninValidator'
 import SignupValidator from 'App/Validators/SignupValidator'
 
-export default class AuthController {
+export default class UserController {
 	public async signinView({ view }: HttpContextContract) {
 		return view.render('users/signin')
 	}
@@ -41,5 +41,10 @@ export default class AuthController {
 			return response.redirect().back()
 		}
 		return response.redirect().toRoute('index')
+	}
+
+	public async logout({ auth, response }: HttpContextContract) {
+		await auth.use('web').logout()
+		return response.redirect('/')
 	}
 }

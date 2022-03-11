@@ -1,16 +1,23 @@
-<header class="w-full flex gap-20  h-20 px-32 items-center justify-between bg-white shadow" >
-	<a href="{{route('index')}}" class="text-4xl uppercase cursor-pointer" >AdonisJS</a>
-	<nav  class="text-2xl flex-1 flex items-center gap-4 justify-end" >
+<header class="w-full flex gap-20  h-14 px-32 items-center justify-between bg-white shadow" >
+	<a href="{{route('index')}}" class="text-2xl uppercase cursor-pointer font-bold" >AdonisJS</a>
+	<nav  class="text-md flex-1 flex items-center gap-6 justify-center" >
 		<a href="{{route('about')}}">A Propos</a>
 		<a href="{{route('contact')}}">Contact</a>
 		<a href="#">Blog</a>	
 	</nav>
-	<div class="text-2xl" >
+	<div class="text-md flex items-center" >
 		@if(auth.isAuthenticated)
 			<p>Hey, {{ auth.user.username }}</p>
+			<div>
+
+				<form action="{{ route('/logout') }}" method="post" >
+					{{ csrfField() }}
+                    <input type="submit" value="Deconnexion" class="ml-2 border border-purple-300 text-purple-700 px-4 py-1 rounded cursor-pointer  font-bold">
+				</form>
+			</div>
 		@else
-		<a href="{{route('signup')}}" class="mr-4" >Inscription</a>
-		<a href="{{route('signin')}}" class="ml-4" >Connexion</a>
+		<a href="{{route('signup')}}" class="mr-2 border border-purple-300 text-purple-700 px-4 py-1 rounded font-bold " >Inscription</a>
+		<a href="{{route('signin')}}" class="ml-2 border border-purple-300 text-purple-700 px-4 py-1 rounded  font-bold" >Connexion</a>
 		@end
 	</div>
 	
