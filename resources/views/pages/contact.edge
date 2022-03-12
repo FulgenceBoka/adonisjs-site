@@ -1,30 +1,30 @@
 @layout('layouts/app')
 @section('content')
-<section class="px-32 bg-gray-100  pt-10 flex flex-col items-center justify-center w-screen" >
-	<form class="border-2 pt-5 px-10 pb-5" action="/contact" method="post">
+<section class="px-32  pt-10 flex flex-col items-center justify-center w-screen" >
+	<form class="bg-white pt-5 px-10 pb-5 drop-shadow-2xl" action="/contact" method="post">
 		<fieldset>
-			<legend class="text-4xl mb-4" >Pour nous contactez</legend>
+			<legend class="text-4xl text-blue-800 mb-4" >Contactez-nous</legend>
 			
 			@!component('components/input',{
-					text: 'Nom utilisateur *',
+					label: 'Nom utilisateur *',
 					name: 'username',
 					type: 'text'
 			})
 
 			@!component('components/input',{
-					text: 'Email *',
+					label: 'Email *',
 					name: 'email',
 					type: 'email'
 			})
 
 			@!component('components/input',{
-					text: 'Site web',
+					label: 'Site web',
 					name: 'website',
 					type: 'text'
 			})
 
 			@!component('components/input',{
-					text: 'Message',
+					label: 'Message',
 					name: 'content',
 					type: 'textarea'
 			})

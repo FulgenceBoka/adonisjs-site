@@ -18,7 +18,7 @@ import Server from '@ioc:Adonis/Core/Server'
 |
 | An array of global middleware, that will be executed in the order they
 | are defined for every HTTP requests.
-|
+|[ () => import('App/Middleware/Guest'),]
 */
 Server.middleware.register([
 	() => import('@ioc:Adonis/Core/BodyParser'),
@@ -44,4 +44,5 @@ Server.middleware.register([
 */
 Server.middleware.registerNamed({
 	auth: () => import('App/Middleware/Auth'),
+	guest: () => import('App/Middleware/Guest'),
 })

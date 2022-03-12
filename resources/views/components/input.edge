@@ -4,13 +4,13 @@
 	@else
 		<label for="{{name}}">{{label}}</label>
 		@if(type==='textarea')
-			<textarea name="{{name}}"  cols="30" rows="10"  class="w-full h-32 rounded"></textarea>
+			<textarea name="{{name}}"  class="w-full h-24 p-2  rounded border border-gray-400 resize-none"></textarea>
 		@else
 			<input type="{{type}}" name="{{name}}" class="h-10 border border-gray-400 pl-6 text-lg font-bold rounded "  value="{{ flashMessages.get(name) || '' }}">
 		@endif
 	@endif
 
-
+ 
 
 	@if(flashMessages.has(`errors.${name}`))
 		 <p  class="mt-2  text-pink-600 text-sm ">
